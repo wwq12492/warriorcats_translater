@@ -6,8 +6,11 @@ pyproject标记的入口点
 import sys
 from .cli import main
 
-if __name__ == "__main__":
+def run():# 定义一个主函数作为“真·入口函数”
     sys.exit(main())  # 只是转发调用
+
+if __name__ == "__main__":
+    run()
     '''
     为何使用sys.exit？
     接受cli.py的退出码，返回退出码
