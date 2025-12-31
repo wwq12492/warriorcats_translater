@@ -13,11 +13,6 @@
 ## 构建方式
 打包为python“可执行”包并用python运行（入口文件为`__main__.py`）
 
-## 命令选项
-```
-warriorcats_translater [--reset-cache]
-```
-
 ## 用户工作流
 ### 用户目录
 ```markdown
