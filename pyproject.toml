@@ -1,1 +1,28 @@
 [project]
+name = "warriorcats_translater"
+version = "0.0.0"
+description = "A translater (en->zh) for Warrior Cats novel series"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "DiegoW", email = "diegow876@outlook.com"}
+]
+requires-python = ">=3.12"
+
+dependencies = [
+    "typer"
+]
+
+[project.optional-dependencies] # 开发依赖
+dev = [
+    "pytest"
+]
+
+# 入口点（CLI工具或包）
+[project.scripts]
+wt = "warriorcats_translater.__main__:run" # 定义wt命令行为：执行本包的__main__.py的run函数
+
+# 构建系统
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
