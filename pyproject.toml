@@ -10,7 +10,9 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "typer",
-    "aiohttp"
+    "aiohttp",
+    "pydantic",
+    "pydantic_settings"
 ]
 
 # 入口点（CLI工具或包）
