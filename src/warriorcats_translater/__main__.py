@@ -4,10 +4,10 @@ pyproject标记的入口点
 主入口点的逻辑应该简单，只负责标记入口
 '''
 import sys
-from .cli import main
+from .cli import cli_wrapper
 
 def run():# 定义一个主函数作为“真·入口函数”
-    sys.exit(main())  # 只是转发调用
+    sys.exit(cli_wrapper())  # 只是转发调用
 
 if __name__ == "__main__":
     run()
@@ -21,7 +21,6 @@ if __name__ == "__main__":
     __main__.py：sys.exit(1) # 真实退出码
 
     异常处理：
-    不应该直接raise（出现异常python解释器会以 1 退出。程序也会，但是程序不会按照显式指定的退出码退出）
-    
+    (出现异常python解释器会以 1 退出。程序也会，但是程序不会按照显式指定的退出码退出）
     所以：在cli.py的顶层（raise最终传播到的地方），使用以上正确方式打印异常，返回退出“码”
     '''
