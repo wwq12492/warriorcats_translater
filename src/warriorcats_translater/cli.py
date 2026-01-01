@@ -18,6 +18,8 @@ app = typer.Typer() # 创建typer实例
 警告：条件注册可能使其发生变化，需要改动
 '''
 
+#@app.command() def init(): ... 问答式创建初始translate.json文件
+
 @app.command()
 def main(clear_cache_force: Annotated[bool, typer.Option(help="强制清理所有翻译缓存（重新开始所有翻译）")] = False):
     print(f"clear cache?:{clear_cache_force}")

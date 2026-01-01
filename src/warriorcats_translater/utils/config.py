@@ -15,10 +15,13 @@ def load_config() -> dict:
     CWD: str = os.getcwd() # 获取用户运行工具的目录
 
     try:
-        with open(os.path.join(CWD,"config.json")) as f:
+        with open(os.path.join(CWD,"translate.json"),"r",encoding="utf-8") as f:
             metadata: dict = json.load(f) # 获取json配置文件数据
     except FileNotFoundError:
-        print("未发现config.json")
+        print("未发现translate.json")
+        raise
+    except json.JSONDecodeError as e:
+        print(f"[错误] translate.json文件json错误，请检查修复文件：{e}")
         raise
 
     try:
