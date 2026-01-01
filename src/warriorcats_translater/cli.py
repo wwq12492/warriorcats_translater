@@ -10,6 +10,7 @@
 职能范围：参数解析（比如应该在这里的main直接CURRENT_DIR: str = os.getcwd() # 获得当前运行目录）
 '''
 import typer # 用实例对象（main运行）+装饰器函数定义参数和逻辑
+from typing import Annotated
 
 app = typer.Typer() # 创建typer实例
 '''
@@ -17,8 +18,12 @@ app = typer.Typer() # 创建typer实例
 警告：条件注册可能使其发生变化，需要改动
 '''
 
-def main() -> int:
-    """程序主入口函数"""
+@app.command()
+def main(clear_cache_force: Annotated[bool, typer.Option(help="强制清理所有翻译缓存（重新开始所有翻译）")] = False):
+    print(f"clear cache?:{clear_cache_force}")
+
+def cli_wrapper() -> int:
+    """错误码返回处理"""
     try:
         app()
         return 0
@@ -29,4 +34,4 @@ def main() -> int:
         return 1
 
 if __name__ == "__main__":
-    main() # 允许直接运行 python -m warriorcats_translater.cli
+    cli_wrapper() # 允许直接运行 python -m warriorcats_translater.cli
