@@ -10,6 +10,8 @@ requires-python = ">=3.12"
 dependencies = [
     "httpx",
     "ebooklib",
+    "bs4>=0.0.2",
+    "lxml>=6.0.2",
 ]
 
 [build-system]
