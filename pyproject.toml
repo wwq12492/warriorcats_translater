@@ -12,6 +12,7 @@ dependencies = [
     "ebooklib",
     "bs4>=0.0.2",
     "lxml>=6.0.2",
+    "aiolimiter>=1.2.1",
 ]
 
 [build-system]
